@@ -37,8 +37,14 @@ theme=== "light" ? setTheme("dark"): setTheme("light");
   //const [isDarkMode, setIsDarkMode] = useState(() => false);
 
   function Switchclicked(){
-    var element= document.body;
-    element.classList.toggle("dark-mode");
+    debugger;
+    if(document.getElementById('dashboardrows').className=="blacktheme"){
+      document.getElementById('dashboardrows').className="whitetheme";
+      document.getElementById('headerrow').className="whitetheme";
+    }else{
+      document.getElementById('dashboardrows').className="blacktheme";
+      document.getElementById('headerrow').className="blacktheme";
+    }
   }
   return (
 
@@ -54,7 +60,7 @@ theme=== "light" ? setTheme("dark"): setTheme("light");
        
        </BrowserRouter> */}
 
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh' }} class="bg-black-600">
       
         <Sider collapsible collapsed={collapsed} onCollapse={()=>setCollapsed(!collapsed)}>
          
@@ -91,7 +97,7 @@ theme=== "light" ? setTheme("dark"): setTheme("light");
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header>
+          <Header id="headerrow" className="blacktheme">
             <h4 class="text-white mt-3">Aikleesh
             Online Shopping Store<span><Avatar  className="avatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" /></span> </h4>
 
@@ -116,7 +122,8 @@ theme=== "light" ? setTheme("dark"): setTheme("light");
               
             </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-            <div class="row">
+              <div class="blacktheme" id="dashboardrows">
+            <div class="row " >
               {/* <div class="col-md-6 col-sm-4">
               <Bar/>
               </div> */}
@@ -133,7 +140,7 @@ theme=== "light" ? setTheme("dark"): setTheme("light");
               <div class="col-md-6 col-sm-6 border rounded shadow mt-5">
                  <Pie/>
               </div>
-               
+              </div>
             </div>
             </div>
           </Content>
